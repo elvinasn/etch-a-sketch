@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color:hsl(0, 0%, 98%);
+    font-family: 'League Gothic', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    margin: 20px 0;
+}
+.container{
+    min-width: 1100px;
+    min-height: 850px;
+    background-color: white;
+    display: flex;
+    margin-bottom: 50px;
+}
+.container__grid{
+    background-color: orange;
+    width: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid__container{
+    width: 800px;
+    height: 800px;
+}
+.container__controls{
+    color: white;
+    width: 300px;
+    background-color: black;
+}
+.grid__row{
+    width: 100%;
+    display: flex;
+    border-collapse: collapse;
+}
+.grid__element{
+    background-color: white;
+    border: 1px solid black;
+}
+
