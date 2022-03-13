@@ -17,6 +17,9 @@ let rainbow = false;
 let selectedColor = colour.value;
 window.addEventListener('load', () => generateGrid())
 
+gridContainer.addEventListener("mousedown", function(e){
+    e.target.style.backgroundColor = selectedColor;
+});
 gridContainer.addEventListener("mouseover", (e) => changeColor(e));
 slider.addEventListener("input", function(e) {
     sizeText.textContent = `${slider.value} X ${slider.value}`;

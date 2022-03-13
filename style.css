@@ -52,6 +52,7 @@ h1{
 }
 .grid__element{
     background-color: white;
+    user-select: none;
 }
 input[type=range] {
     -webkit-appearance: none;
