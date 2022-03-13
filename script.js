@@ -13,7 +13,6 @@ colour.value = "#000000";
 slider.value = 16;
 
 sizeText.textContent = `${slider.value} X ${slider.value}`;
-let height = gridContainer.clientHeight;
 let rainbow = false;
 let selectedColor = colour.value;
 generateGrid();
@@ -69,7 +68,7 @@ function changeColor(e){
 function generateGrid(){
     gridContainer.textContent = "";
     let size = slider.value;
-    let rowHeight = height / size;
+    let rowHeight = gridContainer.clientHeight / size;
     let columnWidth = rowHeight;
     for(let i = 0; i < size; i++){
         const row = document.createElement('div');
