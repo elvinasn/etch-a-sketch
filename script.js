@@ -1,14 +1,21 @@
-let gridContainer = document.querySelector(".grid__container");
+const gridContainer = document.querySelector(".grid__container");
 const body = document.querySelector("html");
 const slider = document.querySelector(".size__slider");
 const sizeText = document.querySelector(".size__paragraph");
+const colour = document.querySelector(`input[type="color"]`);
+const colourMode = document.querySelector("#btn1");
+const blackMode = document.querySelector("#btn2");
+const rainbowMode = document.querySelector("#btn3");
+const eraserMode = document.querySelector("#btn4");
+const clear = document.querySelector("#btn5");
+
+colour.value = "#000000";
 slider.value = 16;
 
 sizeText.textContent = `${slider.value} X ${slider.value}`;
 let height = gridContainer.clientHeight;
-
-
-let selectedColor = "black"
+let rainbow = false;
+let selectedColor = colour.value;
 generateGrid();
 
 gridContainer.addEventListener("mouseover", (e) => changeColor(e));
@@ -18,8 +25,40 @@ slider.addEventListener("input", function(e) {
     generateGrid();
 })
 
+colourMode.addEventListener("click", () => {
+    selectedColor = colour.value;
+    rainbow = false;
+});
+
+colour.addEventListener("input", () => {
+    selectedColor = colour.value
+    rainbow = false;
+});
+
+blackMode.addEventListener("click", () => {
+    selectedColor = "black"
+    rainbow = false;
+});
+
+eraserMode.addEventListener("click", () => {
+    selectedColor = "white";
+    rainbow = false;
+});
+
+clear.addEventListener("click", () => {
+    rainbow = false;
+    generateGrid();
+})
+
+
+rainbowMode.addEventListener("click", () => rainbow = true);
+
 function changeColor(e){
     if(e.buttons > 0){
+        if(rainbow){
+            e.target.style.backgroundColor = randomColour();
+            return;
+        }
         e.target.style.backgroundColor = selectedColor;
     }
     else{
@@ -47,6 +86,9 @@ function generateGrid(){
         row.style.minHeight = `${rowHeight}px`;
         gridContainer.appendChild(row);
     }
+}
+function randomColour(){
+    return "#" + Math.floor(Math.random()*16777215).toString(16);
 }
 
 
